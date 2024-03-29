@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Plugins.Audio.Core;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -26,6 +25,8 @@ public class GameManager : MonoBehaviour
         if (GameData.dataLoaded) DataLoaded(false);
         else if (Application.isEditor) GameData.LoadData();
         else loadingPanel.SetActive(true);
+
+        GetComponent<SourceAudio>().Play("nuggetMusic");
     }
 
     private void Awake()

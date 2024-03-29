@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4645132edefd4c74968a0c941a98fb89, type: 3}
   m_Name: Audio Database
   m_EditorClassIdentifier: 
-  _items: []
+  _items:
+  - Clip: {fileID: 8300000, guid: 3f9ee73891d7b4e44ba81e1715520693, type: 3}
+    Key: nuggetMusic
+    FolderPath: 
+    Name: 
+    Preload: 1
+    _id: 41b18151-11ed-4ba0-a3ba-34bc56696aeb

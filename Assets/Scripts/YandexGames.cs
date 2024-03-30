@@ -23,13 +23,7 @@ public class YandexGames : MonoBehaviour
     private static extern string GetLang();
 
     [DllImport("__Internal")]
-    private static extern bool IsMobilePlatform();
-
-    [DllImport("__Internal")]
     private static extern void ShowFullscreenAd();
-
-    [DllImport("__Internal")]
-    private static extern void ShowRewardedAd();
 
     [DllImport("__Internal")]
     private static extern void SaveToLb(int score);
@@ -46,14 +40,11 @@ public class YandexGames : MonoBehaviour
     public static bool IsInit { get; private set; }
     public static bool IsRus { get; private set; }
     public static bool IsAuth { get; private set; }
-    public static bool IsMobile { get; private set; }
 
     private static string[] RusLangDomens = { "ru", "be", "kk", "uk", "uz" };
     private List<TextTranslator> translateQueue = new List<TextTranslator>();
     private Action adCallback;
-    private RewardedCallback rewardedCallback;
     private float prevAdShowTime = 0f;
-    private bool isRewarded = false;
 
     private void Awake()
     {
@@ -118,36 +109,6 @@ public class YandexGames : MonoBehaviour
             Debug.Log("Ad called too early. Skipped");
             callback();
             return;
-        }
-    }
-
-    public void ShowRewarded(RewardedCallback callback)
-    {
-        if (Application.isEditor || !IsInit)
-        {
-            Debug.Log("Rewarded ad cannot be shown in editor or SDK not initialized");
-            callback(false);
-            return;
-        }
-
-        isRewarded = false;
-        rewardedCallback = callback;
-        AudioListener.volume = 0f;
-        ShowRewardedAd();
-    }
-
-    public void Rewarded()
-    {
-        isRewarded = true;
-    }
-
-    public void RewardedClosed()
-    {
-        AudioListener.volume = 1f;
-        if (rewardedCallback != null)
-        {
-            rewardedCallback(isRewarded);
-            rewardedCallback = null;
         }
     }
 
@@ -219,7 +180,6 @@ public class YandexGames : MonoBehaviour
         IsInit = true;
         prevAdShowTime = Time.time;
         IsRus = RusLangDomens.Contains(GetLang());
-        IsMobile = IsMobilePlatform();
         Debug.Log("IsRus: " + IsRus.ToString());
         for (int i = 0; i < translateQueue.Count; i++)
         {

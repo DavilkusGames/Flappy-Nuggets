@@ -13,9 +13,21 @@ MonoBehaviour:
   m_Name: Audio Database
   m_EditorClassIdentifier: 
   _items:
+  - Clip: {fileID: 8300000, guid: 8bd1b35bf303b6d4db93bff74df9ad0f, type: 3}
+    Key: pop
+    FolderPath: 
+    Name: 
+    Preload: 1
+    _id: 40456d46-2733-4c57-8ee7-01ec97b1e7f5
   - Clip: {fileID: 8300000, guid: 3f9ee73891d7b4e44ba81e1715520693, type: 3}
     Key: nuggetMusic
     FolderPath: 
     Name: 
     Preload: 1
-    _id: 41b18151-11ed-4ba0-a3ba-34bc56696aeb
+    _id: 53c5016b-afae-4796-83de-ac5031e1365f
+  - Clip: {fileID: 8300000, guid: 6f0bcdf69c886d440a3bcb5f4b60bdd4, type: 3}
+    Key: ded
+    FolderPath: 
+    Name: 
+    Preload: 1
+    _id: 1c847ece-08ff-4e1d-af28-d8cd8d39fe88

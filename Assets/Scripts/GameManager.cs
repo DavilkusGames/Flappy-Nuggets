@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject loadingPanel;
+    public PlayerCntrl player;
 
     public static GameManager Instance { get; private set; }
 
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
             GameData.data.prevGameVersion = Application.version.ToString();
             GameData.SaveData();
         }
+        player.UpdateHighscore();
     }
 
     private void Start()

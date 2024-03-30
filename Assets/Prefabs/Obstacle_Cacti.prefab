@@ -271,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posYBorders: {x: -1.5, y: 2.2}
   distanceBorders: {x: 3.65, y: 4.2}
-  distanceMultiplier: 0.025
+  distanceMultiplier: 0.03
   twoParts:
   - {fileID: 7246580367150181822}
   - {fileID: 4124066047073706886}

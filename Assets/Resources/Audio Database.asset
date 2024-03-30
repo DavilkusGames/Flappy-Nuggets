@@ -13,21 +13,33 @@ MonoBehaviour:
   m_Name: Audio Database
   m_EditorClassIdentifier: 
   _items:
+  - Clip: {fileID: 8300000, guid: e7ccd161b23a2224ba28bb84d289c831, type: 3}
+    Key: score_1
+    FolderPath: 
+    Name: 
+    Preload: 1
+    _id: 91b965af-d944-495d-a332-d835d04826b9
   - Clip: {fileID: 8300000, guid: 8bd1b35bf303b6d4db93bff74df9ad0f, type: 3}
     Key: pop
     FolderPath: 
     Name: 
     Preload: 1
-    _id: 40456d46-2733-4c57-8ee7-01ec97b1e7f5
+    _id: 41200c32-65c7-41da-9427-62cec55057de
+  - Clip: {fileID: 8300000, guid: dd3c6200848517b4b99886c7cbc0dc57, type: 3}
+    Key: score_5
+    FolderPath: 
+    Name: 
+    Preload: 1
+    _id: 9075962f-c101-43cc-b08e-e00719070fb0
   - Clip: {fileID: 8300000, guid: 3f9ee73891d7b4e44ba81e1715520693, type: 3}
     Key: nuggetMusic
     FolderPath: 
     Name: 
     Preload: 1
-    _id: 53c5016b-afae-4796-83de-ac5031e1365f
+    _id: b8b93b45-a97d-4a01-acec-60d483443ae7
   - Clip: {fileID: 8300000, guid: 6f0bcdf69c886d440a3bcb5f4b60bdd4, type: 3}
     Key: ded
     FolderPath: 
     Name: 
     Preload: 1
-    _id: 1c847ece-08ff-4e1d-af28-d8cd8d39fe88
+    _id: 490234ec-eb2d-4340-90ce-513cffb7dbe2

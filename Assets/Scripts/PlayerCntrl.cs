@@ -9,6 +9,7 @@ public class PlayerCntrl : MonoBehaviour
     public Animator uiAnim;
     public TMP_Text scoreTxt;
     public TextTranslator highscoreTxt;
+    public ObstacleSpawner obstacleSpawner;
 
     public float velocity = 1.5f;
     public float rotationSpeed = 10f;
@@ -35,19 +36,23 @@ public class PlayerCntrl : MonoBehaviour
     {
         if (state != GameState.Playing) return;
         GameObject obj = collision.gameObject;
-        if (obj.CompareTag("Obstacle"))
+        if (obj.CompareTag("Obstacle") || obj.CompareTag("Ground"))
         {
             state = GameState.GameOver;
             rb.simulated = false;
             uiAnim.Play("transitionToGameOver");
-            audio.Play("ded");
+            audio.PlayOneShot("ded");
+            obstacleSpawner.enabled = false;
 
             if (score > GameData.data.highscore)
             {
                 GameData.data.highscore = score;
+                UpdateHighscore();
                 GameData.SaveData();
                 YandexGames.Instance.SaveToLeaderboard(GameData.data.highscore);
             }
+            ObstacleCntrl[] obstacles = FindObjectsByType<ObstacleCntrl>(FindObjectsSortMode.None);
+            foreach (var obstacle in obstacles) obstacle.enabled = false;
         }
     }
 
@@ -55,32 +60,43 @@ public class PlayerCntrl : MonoBehaviour
     {
         if (state == GameState.GameOver) return;
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-        { 
+        {
             if (state == GameState.Menu)
             {
                 state = GameState.Playing;
                 rb.simulated = true;
                 uiAnim.Play("transitionToGame");
+                obstacleSpawner.enabled = true;
             }
             rb.velocity = Vector2.up * velocity;
-            audio.Play("pop");
+            audio.PlayOneShot("pop");
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GameData.data.highscore = 0;
+            GameData.SaveData();
+            UpdateHighscore();
         }
     }
 
-    public void AddScore(int scoreCount)
+    public void AddScore(int scoreAmount)
     {
-        score += scoreCount;
+        score += scoreAmount;
         UpdateScore();
+
+        if (scoreAmount > 1) audio.PlayOneShot("score_5");
+        else audio.PlayOneShot("score_1");
     }
 
     public void UpdateScore()
     {
-        scoreTxt.text = ' ' + score.ToString();
+        scoreTxt.text = score.ToString();
     }
 
     public void UpdateHighscore()
     {
-        highscoreTxt.AddAdditionalText(GameData.data.highscore.ToString());
+        highscoreTxt.AddAdditionalText(' ' + GameData.data.highscore.ToString());
     }
 
     public void RetryRequest()
@@ -94,9 +110,16 @@ public class PlayerCntrl : MonoBehaviour
         score = 0;
         UpdateScore();
         state = GameState.Menu;
-        uiAnim.Play("inMenu");
+        uiAnim.Play("transitionToMenu");
         trans.position = startPos;
         trans.rotation = Quaternion.identity;
+
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        for (int i = 0; i < obstacles.Length; i++)
+        {
+            Destroy(obstacles[i]);
+            obstacles[i] = null;
+        }
     }
 
     private void FixedUpdate()

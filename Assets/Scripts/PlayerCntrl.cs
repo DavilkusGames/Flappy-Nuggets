@@ -7,6 +7,7 @@ public class PlayerCntrl : MonoBehaviour
     public enum GameState { Menu, Playing, GameOver };
 
     public Animator uiAnim;
+    public Transform thrusterFire;
     public TMP_Text scoreTxt;
     public TextTranslator highscoreTxt;
     public ObstacleSpawner obstacleSpawner;
@@ -15,8 +16,10 @@ public class PlayerCntrl : MonoBehaviour
     public float velocity = 1.5f;
     public float rotationSpeed = 10f;
     public float lerpSpeed = 3f;
+    public float thrusterFireLerp = 1f;
 
     private int score = 0;
+    private float thrusterFireProgress = 0f;
 
     private Rigidbody2D rb;
     private Transform trans;
@@ -73,6 +76,15 @@ public class PlayerCntrl : MonoBehaviour
             }
             rb.velocity = Vector2.up * velocity;
             audio.PlayOneShot("pop");
+            thrusterFire.localScale = Vector3.one;
+            thrusterFireProgress = 0f;
+        }
+
+        if (thrusterFire.localScale != Vector3.zero)
+        {
+            thrusterFireProgress += thrusterFireLerp * Time.deltaTime;
+            thrusterFireProgress = Mathf.Min(thrusterFireProgress, 1f);
+            thrusterFire.localScale = Vector3.Lerp(Vector3.one, new Vector3(0f, 0f, 1f), thrusterFireProgress);
         }
     }
 

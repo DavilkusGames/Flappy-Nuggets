@@ -10,6 +10,7 @@ public class PlayerCntrl : MonoBehaviour
     public TMP_Text scoreTxt;
     public TextTranslator highscoreTxt;
     public ObstacleSpawner obstacleSpawner;
+    public Ground ground;
 
     public float velocity = 1.5f;
     public float rotationSpeed = 10f;
@@ -43,6 +44,7 @@ public class PlayerCntrl : MonoBehaviour
             uiAnim.Play("transitionToGameOver");
             audio.PlayOneShot("ded");
             obstacleSpawner.enabled = false;
+            ground.enabled = false;
 
             if (score > GameData.data.highscore)
             {
@@ -67,6 +69,7 @@ public class PlayerCntrl : MonoBehaviour
                 rb.simulated = true;
                 uiAnim.Play("transitionToGame");
                 obstacleSpawner.enabled = true;
+                ground.enabled = true;
             }
             rb.velocity = Vector2.up * velocity;
             audio.PlayOneShot("pop");
@@ -125,6 +128,9 @@ public class PlayerCntrl : MonoBehaviour
     private void FixedUpdate()
     {
         if (state == GameState.Playing)
+        {
             trans.rotation = Quaternion.Lerp(trans.rotation, Quaternion.Euler(0, 0, rb.velocity.y * rotationSpeed), lerpSpeed * Time.fixedDeltaTime);
+            trans.position = new Vector3(0f, trans.position.y, trans.position.z);
+        }
     }
 }

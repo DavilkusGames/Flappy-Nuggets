@@ -119,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 2618423906663480792}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 3.7, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -270,6 +270,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posYBorders: {x: -1.5, y: 2.2}
+  distanceBorders: {x: 3.65, y: 4.2}
+  distanceMultiplier: 0.025
+  twoParts:
+  - {fileID: 7246580367150181822}
+  - {fileID: 4124066047073706886}
   moveSpeed: 5
 --- !u!1 &7426518741466731308
 GameObject:
@@ -298,7 +303,7 @@ Transform:
   m_GameObject: {fileID: 7426518741466731308}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.7, z: 0}
+  m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

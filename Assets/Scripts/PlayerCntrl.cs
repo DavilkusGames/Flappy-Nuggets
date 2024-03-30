@@ -74,13 +74,6 @@ public class PlayerCntrl : MonoBehaviour
             rb.velocity = Vector2.up * velocity;
             audio.PlayOneShot("pop");
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            GameData.data.highscore = 0;
-            GameData.SaveData();
-            UpdateHighscore();
-        }
     }
 
     public void AddScore(int scoreAmount)

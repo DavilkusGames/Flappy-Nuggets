@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
             GameData.data.prevGameVersion = Application.version.ToString();
             GameData.SaveData();
         }
+        player.enabled = true;
         player.UpdateHighscore();
     }
 

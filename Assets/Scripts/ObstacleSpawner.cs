@@ -28,8 +28,8 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        if (obstacleCount > 0 && ((obstacleCount + 1) % bonusObstacleRate == 0)) Instantiate(bonusObstaclePrefab);
-        else Instantiate(obstaclePrefab);
+        if (obstacleCount > 0 && ((obstacleCount + 1) % bonusObstacleRate == 0)) Instantiate(bonusObstaclePrefab).GetComponent<ObstacleCntrl>().SetId(obstacleCount);
+        else Instantiate(obstaclePrefab).GetComponent<ObstacleCntrl>().SetId(obstacleCount);
         obstacleCount++;
 
         Invoke(nameof(Spawn), Random.Range(randomSpawnRate.x, randomSpawnRate.y));

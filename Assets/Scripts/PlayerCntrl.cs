@@ -46,6 +46,8 @@ public class PlayerCntrl : MonoBehaviour
             rb.simulated = false;
             uiAnim.Play("transitionToGameOver");
             audio.PlayOneShot("ded");
+            thrusterFire.localScale = new Vector3(0f, 0f, 1f);
+            thrusterFireProgress = 0f;
             obstacleSpawner.enabled = false;
             ground.enabled = false;
 

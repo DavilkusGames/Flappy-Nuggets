@@ -18,28 +18,28 @@ MonoBehaviour:
     FolderPath: 
     Name: 
     Preload: 1
-    _id: 91b965af-d944-495d-a332-d835d04826b9
+    _id: b2110d9a-495d-4a28-bd4e-64f86b43642a
   - Clip: {fileID: 8300000, guid: 8bd1b35bf303b6d4db93bff74df9ad0f, type: 3}
     Key: pop
     FolderPath: 
     Name: 
     Preload: 1
-    _id: 41200c32-65c7-41da-9427-62cec55057de
+    _id: 5e338bbf-d7f5-4c4f-8251-7b4814bf0709
   - Clip: {fileID: 8300000, guid: dd3c6200848517b4b99886c7cbc0dc57, type: 3}
     Key: score_5
     FolderPath: 
     Name: 
     Preload: 1
-    _id: 9075962f-c101-43cc-b08e-e00719070fb0
+    _id: 122b622b-b3ce-472b-be53-d5551f5455a6
   - Clip: {fileID: 8300000, guid: 3f9ee73891d7b4e44ba81e1715520693, type: 3}
     Key: nuggetMusic
     FolderPath: 
     Name: 
     Preload: 1
-    _id: b8b93b45-a97d-4a01-acec-60d483443ae7
+    _id: ac7dd67f-8653-49fd-80a3-cfe7fefaba4c
   - Clip: {fileID: 8300000, guid: 6f0bcdf69c886d440a3bcb5f4b60bdd4, type: 3}
     Key: ded
     FolderPath: 
     Name: 
     Preload: 1
-    _id: 490234ec-eb2d-4340-90ce-513cffb7dbe2
+    _id: 4e3abb01-d9a9-427b-904b-4db270ce9a0d

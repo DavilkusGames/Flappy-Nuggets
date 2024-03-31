@@ -82,7 +82,7 @@ public class PlayerCntrl : MonoBehaviour
             thrusterFireProgress = 0f;
         }
 
-        if (thrusterFire.localScale != Vector3.zero)
+        if (thrusterFire.localScale != new Vector3(0f, 0f, 1f))
         {
             thrusterFireProgress += thrusterFireLerp * Time.deltaTime;
             thrusterFireProgress = Mathf.Min(thrusterFireProgress, 1f);
